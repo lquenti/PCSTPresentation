@@ -12,19 +12,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
-      - name: Set up LaTeX environment
+      - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
           root_file: template.tex
           latexmk_shell_escape: true
           options: --shell-escape
-
-      - name: Compile LaTeX document
-        run: |
-          latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode -halt-on-error -shell-escape" template.tex
-          mv template.pdf $GITHUB_WORKSPACE
-
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
