@@ -46,13 +46,74 @@
 
 	% --- slides begin ---
 
-	\section{Section 1}
+	\section{Introduction}
 
-	\begin{frame}{Slide 1}
-		\begin{itemize}
-			\item
-		\end{itemize}
+	\begin{frame}{Github Actions}
+    \begin{columns}
+      \begin{column}{0.5\textwidth}
+        \begin{figure}
+          \begin{center}
+            \includegraphics[width=0.95\textwidth]{ghlogo.png}
+          \end{center}
+        \end{figure}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+        \begin{itemize}
+          \item CI system developed by Github
+          \item Fully hosted, including runner
+          \item Uses yaml based configuration
+          \item Well documented
+          \item Community-driven plugins, so-called "actions"
+            \begin{itemize}
+              \item integrated marketplace
+            \end{itemize}
+        \end{itemize}
+      \end{column}
+    \end{columns}
 	\end{frame}
+
+  % Advantages and disadvantages
+	\begin{frame}{}
+    \begin{columns}
+      \begin{column}{0.5\textwidth}
+        \begin{block}{Advantages}
+          \begin{itemize}
+            \item Well documented
+            \item Known by many developers
+            \item Premade actions for almost everything
+            \item No hosting required
+            \item Free for non-commercial open source
+          \end{itemize}
+        \end{block}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+        \begin{block}{Disadvantages}
+          \begin{itemize}
+            \item Vendor lockin
+              \begin{itemize}
+                \item Closed source runner
+                \item pre made options only available on github
+              \end{itemize}
+            \item High pricing for large scale
+            \item Requires code to be hosted on Github
+            \item Runner runs on Github servers
+              \begin{itemize}
+                \item Possible compliance problems (GDPR)
+                \item US Company $\Rightarrow$ CLOUD Act
+              \end{itemize}
+          \end{itemize}
+        \end{block}
+      \end{column}
+    \end{columns}
+	\end{frame}
+
+  \section{Implementation}
+
+  % High Level workflow
+
+  % initial setup
+
+  % each step
 
 	\begin{frame}{Last Frame}
 		\label{pg:lastpage} % Label on last frame to get the page number for footer
