@@ -17,6 +17,8 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: template.tex
+          # Pass options to pdflatex including shell-escape
+          options: --shell-escape
 
       - name: Compile LaTeX document
         run: |
