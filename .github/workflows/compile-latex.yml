@@ -17,9 +17,8 @@ jobs:
         with:
           root_file: template.tex
           latexmk_shell_escape: true
-          options: --shell-escape
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: template
-          path: $GITHUB_WORKSPACE/template.pdf
+          path: template.pdf
