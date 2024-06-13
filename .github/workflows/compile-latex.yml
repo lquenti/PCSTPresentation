@@ -19,7 +19,7 @@ jobs:
         root_file: template.tex
 
     - name: Compile LaTeX document
-      run: pdflatex template.tex
+      run: latexmk -pdf -pdflatex="pdflatex -shell-escape" template.tex
 
     - name: Upload artifact
       uses: actions/upload-artifact@v3
