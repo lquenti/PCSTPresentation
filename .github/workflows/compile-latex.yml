@@ -20,7 +20,7 @@ jobs:
 
       - name: Compile LaTeX document
         run: |
-          latexmk -pdf -pdflatex="pdflatex -shell-escape" template.tex
+          latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode -halt-on-error -shell-escape" template.tex
           mv template.pdf $GITHUB_WORKSPACE
 
       - name: Upload artifact
