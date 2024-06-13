@@ -110,20 +110,125 @@
   \section{Implementation}
 
   % High Level workflow
-
-  % initial setup
-
-  % each step
-
-	\begin{frame}{Last Frame}
-		\label{pg:lastpage} % Label on last frame to get the page number for footer
-
+	\begin{frame}{High Level Workflow}
+    \begin{enumerate}
+      \item Create yml file
+        \begin{itemize}
+          \item \texttt{mkdir -p .github/workflows}
+          \item \texttt{touch .github/workflows/ci.yml}
+        \end{itemize}
+      \item Define when to run
+      \item define jobs with different steps. Including:
+        \begin{itemize}
+          \item Checking out (getting) the code 
+          \item Setting up the Environment
+          \item The actual work
+        \end{itemize}
+    \end{enumerate}
 	\end{frame}
 
-	\begin{frame}{References}
-		% References slide in appendix
-		\renewcommand*{\bibfont}{\normalfont\scriptsize}
-		\printbibliography[heading=none]
+	\begin{frame}{Config Breakdown: When to Run}
+    \begin{columns}
+      \begin{column}{0.5\textwidth}
+        \begin{figure}
+          \begin{center}
+            \includegraphics[width=0.95\textwidth]{when.png}
+          \end{center}
+        \end{figure}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+        \begin{itemize}
+          \item Defined by \texttt{on:}
+          \item in our case:
+          \begin{itemize}
+            \item On every master commit
+            \item On every pull request against master
+          \end{itemize}
+        \item Is a list, can contain multiple branches
+        \end{itemize}
+      \end{column}
+    \end{columns}
+	\end{frame}
+
+  % each step
+	\begin{frame}{Config Breakdown: Build Job}
+    \begin{columns}
+      \begin{column}{0.5\textwidth}
+        \begin{figure}
+          \begin{center}
+            \includegraphics[width=0.95\textwidth]{build.png}
+          \end{center}
+        \end{figure}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+        \begin{itemize}
+          \item Each bullet point is a step that runs one after another
+          \item \texttt{actions/checkout} is a pre-made action by Github
+            \begin{itemize}
+              \item git checkouts the newest version of the repo
+            \end{itemize}
+          \item \texttt{s4u/setup-maven-action} is a community action to install maven
+          \item \texttt{run:} allows for arbitrary shell code execution
+        \end{itemize}
+      \end{column}
+    \end{columns}
+	\end{frame}
+
+	\begin{frame}{Config Breakdown: Test Job}
+    \begin{columns}
+      \begin{column}{0.5\textwidth}
+        \begin{figure}
+          \begin{center}
+            \includegraphics[width=0.95\textwidth]{testjob.png}
+          \end{center}
+        \end{figure}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+        \begin{itemize}
+          \item Again: Checkout and Maven setup
+          \item Run unit and integration test suite
+            \begin{itemize}
+              \item Like in Terminal: \texttt{mvn test}
+            \end{itemize}
+          \item Run Mutation test coverage with terminal command
+          \item \texttt{actions/upload-artifact} is official action by GitHub
+            \begin{itemize}
+              \item \texttt{with:} can be used to configure actions
+              \item \texttt{name:} defines name of the zip file
+              \item \texttt{path:} defines where the to-be-zipped files are located
+            \end{itemize}
+        \end{itemize}
+      \end{column}
+    \end{columns}
+	\end{frame}
+
+	\begin{frame}{Artifacts}
+    \begin{figure}
+      \begin{center}
+        \includegraphics[width=0.95\textwidth]{artifacts1.png}
+      \end{center}
+    \end{figure}
+	\end{frame}
+	\begin{frame}{Artifacts}
+    \begin{figure}
+      \begin{center}
+        \includegraphics[width=0.95\textwidth]{artifacts2.png}
+      \end{center}
+    \end{figure}
+	\end{frame}
+	\begin{frame}{Artifacts}
+    \begin{figure}
+      \begin{center}
+        \includegraphics[width=0.95\textwidth]{artifacts3.png}
+      \end{center}
+    \end{figure}
+	\end{frame}
+
+	\begin{frame}{}
+		\label{pg:lastpage} % Label on last frame to get the page number for footer
+    \begin{center}
+    \Huge Thanks for your attention!
+    \end{center}
 	\end{frame}
 
 \end{document}
