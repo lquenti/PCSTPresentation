@@ -1,0 +1,26 @@
+name: Compile LaTeX document
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up LaTeX environment
+      uses: dante-ev/latex-action@v2.0.0
+
+    - name: Compile LaTeX document
+      run: pdflatex template.tex
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: template
+        path: template.pdf
