@@ -11,10 +11,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Set up LaTeX environment
-      uses: dante-ev/latex-action@v0.0.1
+      uses: xu-cheng/latex-action@v3
 
     - name: Compile LaTeX document
       run: pdflatex template.tex
