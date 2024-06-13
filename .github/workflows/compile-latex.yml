@@ -10,19 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Set up LaTeX environment
-      uses: xu-cheng/latex-action@v3
-      with:
-        root_file: template.tex
+      - name: Set up LaTeX environment
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: template.tex
 
-    - name: Compile LaTeX document
-      run: latexmk -pdf -pdflatex="pdflatex -shell-escape" template.tex
+      - name: Compile LaTeX document
+        run: |
+          latexmk -pdf -pdflatex="pdflatex -shell-escape" template.tex
+          mv template.pdf $GITHUB_WORKSPACE
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: template
-        path: template.pdf
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: template
+          path: $GITHUB_WORKSPACE/template.pdf
