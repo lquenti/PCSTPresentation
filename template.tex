@@ -224,6 +224,25 @@
     \end{figure}
 	\end{frame}
 
+ 	\begin{frame}{PIT+Integration tests}
+    \begin{columns}
+      \begin{column}{0.5\textwidth}
+        \begin{figure}
+          \begin{center}
+            \includegraphics[width=0.95\textwidth]{excludedmethod.png}
+          \end{center}
+        \end{figure}
+      \end{column}
+      \begin{column}{0.5\textwidth}
+        \begin{itemize}
+                \item Integration tests work with \texttt{mvn test}, but not with PIT
+                \item There is allegedly a feature to exclude tests with 100\% coverage and 100\% passing
+                \item It's not well-documented, so instead the tests were just commented out for now
+        \end{itemize}
+      \end{column}
+    \end{columns}
+	\end{frame}
+
 	\begin{frame}{}
 		\label{pg:lastpage} % Label on last frame to get the page number for footer
     \begin{center}
